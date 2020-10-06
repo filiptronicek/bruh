@@ -13,9 +13,10 @@ const websites = [
     "taskord.com",
     "gitlab.com",
     "dev.to",
+    "kananas.com"
 ];
 
-const positiveStatusCodes = [200, 201, 204, 301, 303, 304, 308];
+const positiveStatusCodes = [200, 201, 204, 301, 302, 303, 304, 308];
 
 function CheckWeb(name) {
     const info = fetch(`https://isitup.org/${name}.json`).then(response => response.json());
