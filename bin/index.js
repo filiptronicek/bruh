@@ -6,7 +6,7 @@ const clear = require('clear');
 const figlet = require('figlet');
 const clc = require("cli-color");
 
-const arguments = process.argv.slice(2);
+const cliArguments = process.argv.slice(2);
 
 const websites = [
     "trnck.dev",
@@ -42,7 +42,7 @@ function CheckWeb(name) {
     });
 }
 
-const title = arguments.includes("lmao") ? "BRUH LMAO" : "BRUH"
+const title = cliArguments.includes("lmao") ? "BRUH LMAO" : "BRUH"
 
 clear();
 console.log(
