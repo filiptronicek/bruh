@@ -32,7 +32,7 @@ function CheckWeb(name) {
     });
 
     info.then(() => {
-        fetch(`http://${name}`).then(response => {
+        fetch(`http://${name}`).then(() => {
             //console.log(response.status);
         }).catch(_error => { console.log(`${clc.red(name)} is inaccessible`); });
     });
