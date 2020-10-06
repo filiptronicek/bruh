@@ -11,6 +11,9 @@
     },
     "author": "Filip Troníček",
     "license": "MIT",
+    "publishConfig": {
+        "registry": "https://npm.pkg.github.com/"
+    },
     "dependencies": {
         "chalk": "^4.1.0",
         "clear": "^0.1.0",
