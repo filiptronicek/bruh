@@ -31,11 +31,11 @@ function CheckWeb(name) {
     info.then(() => {
         fetch(`http://${name}`).then(response => {
             //console.log(response.status);
-        }).catch(_error => {console.log(`${name} is inaccessible`);});
+        }).catch(_error => {console.log(`${clc.red(name)} is inaccessible`);});
     });
 
     info.catch((_error) => {
-        console.log(`❌ cannot access ${name}`);
+        console.log(`❌ cannot access ${clc.red(name)}`);
     });
 }
 
