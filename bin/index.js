@@ -9,13 +9,11 @@ const clc = require("cli-color");
 const cliArguments = process.argv.slice(2);
 
 const websites = [
-    "trnck.dev",
     "google.com",
     "github.com",
-    "taskord.com",
     "gitlab.com",
     "dev.to",
-    "kananas.com"
+    "netflix.com"
 ];
 
 const positiveStatusCodes = [200, 201, 204, 301, 302, 303, 304, 308];
@@ -25,7 +23,11 @@ function CheckWeb(name) {
 
     info.then((result) => {
         if (positiveStatusCodes.includes(result.response_code)) {
-            console.log(`✅  ${clc.red(name)} is up and running`);
+            if (cliArguments[0] !== name) {
+                console.log(`✅  ${clc.red(name)} is up and running`);
+            } else {
+                console.log(`✅  ${clc.yellow(name)} is up and running`);
+            }
         } else {
             console.log(`❌  ${name} is down`);
         }
@@ -44,6 +46,12 @@ function CheckWeb(name) {
 
 const title = cliArguments.includes("lmao") ? "BRUH LMAO" : "BRUH";
 
+if (cliArguments[0] !== undefined) {
+    if (cliArguments[0].match(".{1,99}\..{1,10}")) {
+        websites.push(cliArguments[0]);
+    }
+}
+
 clear();
 console.log(
     chalk.red(
@@ -51,6 +59,6 @@ console.log(
     )
 );
 
-websites.forEach(web => {
+websites.sort().forEach(web => {
     CheckWeb(web);
 });
