@@ -1,6 +1,9 @@
 #!/usr/bin/env node
 
 const fetch = require("node-fetch");
+const chalk = require("chalk");
+const clear = require('clear');
+const figlet = require('figlet');
 
 const websites = [
     "trnck.dev",
@@ -9,14 +12,15 @@ const websites = [
     "taskord.com",
     "gitlab.com",
     "dev.to",
-    "downloads.trnck.dev"
 ];
+
+const positiveStatusCodes = [200, 201, 204, 301, 303, 304, 308];
 
 function CheckWeb(name) {
     const info = fetch(`https://isitup.org/${name}.json`).then(response => response.json());
 
     info.then((result) => {
-        if (result.response_code === 200 | result.response_code === 301) { 
+        if (positiveStatusCodes.includes(result.response_code)) { 
             console.log(`✅ ${name} is up and running`);
         } else {
             console.log(`❌ ${name} is down`);
@@ -35,5 +39,11 @@ function CheckWeb(name) {
 }
 
 websites.forEach(web => {
+    clear();
+    console.log(
+        chalk.red(
+            figlet.textSync('BRUH', { horizontalLayout: 'full' })
+        )
+    );
     CheckWeb(web);
 });
