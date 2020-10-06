@@ -6,6 +6,8 @@ const clear = require('clear');
 const figlet = require('figlet');
 const clc = require("cli-color");
 
+const arguments = process.argv.slice(2);
+
 const websites = [
     "trnck.dev",
     "google.com",
@@ -22,7 +24,7 @@ function CheckWeb(name) {
     const info = fetch(`https://isitup.org/${name}.json`).then(response => response.json());
 
     info.then((result) => {
-        if (positiveStatusCodes.includes(result.response_code)) { 
+        if (positiveStatusCodes.includes(result.response_code)) {
             console.log(`✅  ${clc.red(name)} is up and running`);
         } else {
             console.log(`❌  ${name} is down`);
@@ -32,7 +34,7 @@ function CheckWeb(name) {
     info.then(() => {
         fetch(`http://${name}`).then(response => {
             //console.log(response.status);
-        }).catch(_error => {console.log(`${clc.red(name)} is inaccessible`);});
+        }).catch(_error => { console.log(`${clc.red(name)} is inaccessible`); });
     });
 
     info.catch((_error) => {
@@ -40,12 +42,15 @@ function CheckWeb(name) {
     });
 }
 
+const title = arguments.includes("lmao") ? "BRUH LMAO" : "BRUH"
+
+clear();
+console.log(
+    chalk.red(
+        figlet.textSync(title, { horizontalLayout: 'full' })
+    )
+);
+
 websites.forEach(web => {
-    clear();
-    console.log(
-        chalk.red(
-            figlet.textSync('BRUH', { horizontalLayout: 'full' })
-        )
-    );
     CheckWeb(web);
 });
