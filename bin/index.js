@@ -42,7 +42,7 @@ function CheckWeb(name) {
     });
 }
 
-const title = cliArguments.includes("lmao") ? "BRUH LMAO" : "BRUH"
+const title = cliArguments.includes("lmao") ? "BRUH LMAO" : "BRUH";
 
 clear();
 console.log(
