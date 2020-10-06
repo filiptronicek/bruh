@@ -1,11 +1,13 @@
 {
-    "name": "bruh",
+    "name": "@filiptronicek/bruh-cli",
     "version": "1.0.0",
     "description": "A Barely Reliable Utility for Humans",
+    "repository": "https://github.com/filiptronicek/BRUH",
     "main": "bin/index.js",
     "bin": {
         "bruh": "./bin/index.js"
     },
+    "preferGlobal": true,
     "scripts": {
         "test": "echo \"Error: no test specified\" && exit 1"
     },
