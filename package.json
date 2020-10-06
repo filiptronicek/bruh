@@ -1,0 +1,11 @@
+{
+  "name": "bruh",
+  "version": "1.0.0",
+  "description": "A Barely Reliable Utility for Humans",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Filip Troníček",
+  "license": "MIT"
+}
