@@ -4,6 +4,7 @@ const fetch = require("node-fetch");
 const chalk = require("chalk");
 const clear = require('clear');
 const figlet = require('figlet');
+const clc = require("cli-color");
 
 const websites = [
     "trnck.dev",
@@ -21,9 +22,9 @@ function CheckWeb(name) {
 
     info.then((result) => {
         if (positiveStatusCodes.includes(result.response_code)) { 
-            console.log(`✅ ${name} is up and running`);
+            console.log(`✅  ${clc.red(name)} is up and running`);
         } else {
-            console.log(`❌ ${name} is down`);
+            console.log(`❌  ${name} is down`);
         }
     });
 
