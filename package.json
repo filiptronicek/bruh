@@ -1,6 +1,6 @@
 {
-    "name": "@filiptronicek/bruh-cli",
-    "version": "1.0.0",
+    "name": "bruh-cli",
+    "version": "1.0.1",
     "description": "A Barely Reliable Utility for Humans",
     "repository": "https://github.com/filiptronicek/BRUH",
     "main": "bin/index.js",
@@ -13,9 +13,6 @@
     },
     "author": "Filip Troníček",
     "license": "MIT",
-    "publishConfig": {
-        "registry": "https://npm.pkg.github.com/"
-    },
     "dependencies": {
         "chalk": "^4.1.0",
         "clear": "^0.1.0",
