@@ -46,8 +46,8 @@ function CheckWeb(name) {
 
 const title = cliArguments.includes("lmao") ? "BRUH LMAO" : "BRUH";
 
-if (cliArguments[0] !== undefined) {
-    if (cliArguments[0].match("\w{1,99}\.([A-Z]|[a-z]){1,10}")) {
+if (cliArguments[0]) {
+    if (cliArguments[0].match("\\w{1,99}\.([A-Z]|[a-z]){1,10}")) {
         websites.push(cliArguments[0]);
     }
 }
