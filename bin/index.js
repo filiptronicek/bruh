@@ -5,9 +5,10 @@ const clear = require('clear');
 const figlet = require('figlet');
 const clc = require("cli-color");
 
+const isAvailable = require('./src/availible');
+
 /* Network requests */
 
-const dns = require('dns');
 const fetch = require("node-fetch");
 
 const cliArguments = process.argv;
@@ -30,14 +31,6 @@ const positiveStatusCodes = [
     304,
     308
 ];
-
-function isAvailable(url) {
-    // uses the core modules to run an IPv4 resolver that returns 'err' on error
-    dns.resolve4(url, (err, _addresses) => {
-            return err === "";
-        });
-}
-
 
 function CheckWeb(name) {
     const info = fetch(`https://isitup.org/${name}.json`).then(response => response.json());
