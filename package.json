@@ -1,6 +1,6 @@
 {
     "name": "bruh-cli",
-    "version": "1.1.1",
+    "version": "1.2.0",
     "description": "A Barely Reliable Utility for Humans",
     "repository": "https://github.com/filiptronicek/BRUH",
     "main": "bin/index.js",
