@@ -1,5 +1,7 @@
 #!/usr/bin/env node
 
+const isOnline = require('is-online');
+
 const chalk = require("chalk");
 const clear = require('clear');
 const figlet = require('figlet');
@@ -18,7 +20,6 @@ const websites = [
     "github.com",
     "gitlab.com",
     "dev.to",
-    "netflix.com"
 ];
 
 const positiveStatusCodes = [
@@ -38,13 +39,11 @@ function CheckWeb(name) {
     info.then((result) => {
         if (positiveStatusCodes.includes(result.response_code)) {
             if (cliArguments[0] !== name) {
-                console.log(`✅  ${
-                    clc.red(name)
-                } is up and running`);
+                console.log(`✅  ${clc.red(name)
+                    } is up and running`);
             } else {
-                console.log(`✅  ${
-                    clc.yellow(name)
-                } is up and running`);
+                console.log(`✅  ${clc.yellow(name)
+                    } is up and running`);
             }
         } else {
             console.log(`❌  ${name} is down`);
@@ -55,23 +54,21 @@ function CheckWeb(name) {
         fetch(`http://${name}`).then(() => {
             // console.log(response.status);
         }).catch(_error => {
-            console.log(`${
-                clc.red(name)
-            } is inaccessible`);
+            console.log(`${clc.red(name)
+                } is inaccessible`);
         });
     });
 
     info.catch((_error) => {
-        console.log(`❌ cannot access ${
-            clc.red(name)
-        }`);
+        console.log(`❌ cannot access ${clc.red(name)
+            }`);
     });
 }
 
 const title = cliArguments.includes("lmao") ? "BRUH LMAO" : "BRUH";
 
 clear();
-console.log(chalk.red(figlet.textSync(title, {horizontalLayout: 'full'})));
+console.log(chalk.red(figlet.textSync(title, { horizontalLayout: 'full' })));
 
 const customSite = cliArguments[2];
 
@@ -87,6 +84,15 @@ if (customSite) {
     }
 }
 
-websites.sort().forEach(web => {
-    CheckWeb(web);
-});
+(async () => {
+    const online = await isOnline();
+
+    if (online) {
+        websites.sort().forEach(web => {
+            CheckWeb(web);
+        });
+    } else {
+        console.log("❌ you are offline")
+    }
+
+})();
