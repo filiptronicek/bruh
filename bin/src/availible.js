@@ -1,8 +1,7 @@
-const dns = require('dns');
+const dns = require("dns");
 
-module.exports = (url)  => {
-    // uses the core modules to run an IPv4 resolver that returns 'err' on error
-    dns.resolve4(url, (err, _addresses) => {
-            return err === "";
-        });
+module.exports = (url) => {
+  dns.resolve4(url, (_err, addresses) => {
+    return addresses === undefined;
+  });
 };
