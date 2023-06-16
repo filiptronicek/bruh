@@ -1,5 +1,6 @@
 # BRUH
- A Barely Reliable Utility for Humans
+
+A Broadband Response and Uptime Heuristic helping you figure out the times you're online and when you're not.
 
 ## Installation
 1. Execute `npm i -g bruh-cli`
