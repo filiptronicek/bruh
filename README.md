@@ -1,14 +1,9 @@
-# BRUH
+# `bruh`
 
 A Broadband Response and Uptime Heuristic helping you figure out the times you're online and when you're not.
 
-## Installation
-1. Execute `npm i -g bruh-cli`
+## Installation (requires Go)
 
-## Usage
-- Check the small set of websites
-
-`bruh`
-- Check a custom domain
-
-`bruh npmjs.com`
+```bash
+go install github.com/filiptronicek/bruh
+```
