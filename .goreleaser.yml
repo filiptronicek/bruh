@@ -1,0 +1,54 @@
+project_name: bruh
+
+builds:
+  - id: "bruh"
+    main: ./main.go
+    binary: bruh
+    goos:
+      - linux
+      - darwin
+      - windows
+      - freebsd
+      - netbsd
+      - openbsd
+      - solaris
+      - dragonfly
+    goarch:
+      - amd64
+      - "386"
+      - arm
+      - arm64
+      - ppc64
+      - ppc64le
+      - mips
+      - mipsle
+      - mips64
+      - mips64le
+      - s390x
+    goarm:
+      - "6"
+      - "7"
+    ignore:
+      - goos: darwin
+        goarch: "386"
+
+archives:
+  - id: archive
+    builds:
+      - bruh
+    format: tar.gz
+    format_overrides:
+      - goos: windows
+        format: zip
+    files:
+      - LICENSE
+      - README.md
+
+snapshot:
+  name_template: "{{ .Tag }}-next"
+
+checksum:
+  name_template: "checksums.txt"
+
+release:
+  draft: false
